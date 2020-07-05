@@ -8,11 +8,11 @@ function toggleColor() {
 }
 
 AFRAME.registerComponent("rig-thrusters", {
-  schema: {    
-    forward: { type: 'number', default: 0 },
-    right: { type: 'number', default: 0 },
-    turnDown: { type: 'number', default: 0 },
-    turnRight: { type: 'number', default: 0 },
+  schema: {
+    forward: { type: "number", default: 0 },
+    right: { type: "number", default: 0 },
+    turnDown: { type: "number", default: 0 },
+    turnRight: { type: "number", default: 0 }
   },
   init: function() {
     this.directionVec3 = new THREE.Vector3();
@@ -37,7 +37,7 @@ AFRAME.registerComponent("rig-thrusters", {
       this.rotationVec3.x = turnDown / 10;
     }
     if (turnRight !== undefined) {
-      this.rotationVec3.y = turnRight / 10;
+      this.rotationVec3.y = -turnRight / 10;
     }
     console.log("rig update => direction:", this.directionVec3);
     console.log("rig update => rotation:", this.rotationVec3);
@@ -90,7 +90,7 @@ AFRAME.registerComponent("keyboard-control", {
           rig.setAttribute(
             "rig-thrusters",
             "turnRight",
-            event.key === "g" ? 1 : -1
+            event.key === "g" ? -1 : 1
           );
           break;
       }
@@ -148,6 +148,11 @@ AFRAME.registerComponent("rig-rotation-controller", {
   init: function() {
     const rigElementId = this.data;
     const rig = document.getElementById(rigElementId);
-    // TODO
+
+    this.el.addEventListener("axismove", function(event) {
+      const [x, y] = event.detail.axis.slice(2);
+      // console.log("rig-movement-controller", this.id, "axismove: " , { x, y });
+      rig.setAttribute("rig-thrusters", { turnDown: y, turnRight: x });
+    });
   }
 });
