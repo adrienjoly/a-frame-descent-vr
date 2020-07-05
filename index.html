@@ -8,12 +8,13 @@
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
-      <a-entity id="rig" position="0 1.6 0" rig-thrusters="forward: 0; right: 0;">
+      <a-entity
+        id="rig"
+        position="0 1.6 0"
+        rig-thrusters="forward: 0; right: 0;"
+      >
         <a-entity id="camera" camera="active: true"></a-entity>
-        <a-entity
-          id="keyboard-control"
-          keyboard-control="rig"
-        ></a-entity>
+        <a-entity id="keyboard-control" keyboard-control="rig"></a-entity>
         <a-entity
           id="left-hand"
           oculus-touch-controls="hand: left"

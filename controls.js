@@ -1,4 +1,4 @@
-/*globals AFRAME*/
+/*globals AFRAME, THREE*/
 
 const colors = ["#FFC65D", "#7BC8A4"];
 let state = 0;
@@ -9,16 +9,23 @@ function toggleColor() {
 
 AFRAME.registerComponent("rig-thrusters", {
   init: function() {
-    // this.data["right"] = 0;
-    // this.data["forward"] = 0;
+    this.directionVec3 = new THREE.Vector3();
   },
   tick: function() {
-    this.el.object3D.position.x += this.data["right"] / 10;
-    this.el.object3D.position.z += this.data["forward"] / 10;
-    // console.log("camera", this.el.object3D.position);
+    ["x", "y", "z"].forEach(axis => {
+      this.el.object3D.position[axis] += this.directionVec3[axis];
+    });
+    // console.log("rig tick => camera:", this.el.object3D.position);
   },
   update: function(oldData) {
-    console.log("update", this.data);
+    const { forward, right } = this.data;
+    if (right !== undefined) {
+      this.directionVec3.x = right / 10;
+    }
+    if (forward !== undefined) {
+      this.directionVec3.z = forward / 10;
+    }
+    console.log("rig update => direction:", this.directionVec3);
   }
 });
 
@@ -27,6 +34,13 @@ AFRAME.registerComponent("keyboard-control", {
 
   init: function() {
     const rigElementId = this.data;
+    if (!rigElementId) {
+      console.warn(
+        "rig element id must be provided to keyboard-control component"
+      );
+      return;
+    }
+
     const rig = document.getElementById(rigElementId);
 
     window.addEventListener("keydown", function(event) {
@@ -66,14 +80,20 @@ AFRAME.registerComponent("rig-movement-controller", {
 
   init: function() {
     const rigElementId = this.data;
+    if (!rigElementId) {
+      console.warn(
+        "rig element id must be provided to rig-movement-controller component"
+      );
+      return;
+    }
+
     const rig = document.getElementById(rigElementId);
 
     // https://aframe.io/docs/1.0.0/components/tracked-controls.html
     this.el.addEventListener("axismove", function(event) {
       const [x, y] = event.detail.axis.slice(2);
-      // console.log(this.id, { x, y });
+      // console.log("rig-movement-controller", this.id, "axismove: " , { x, y });
       rig.setAttribute("rig-thrusters", { forward: y, right: x });
-      //console.log("Entity collided with", event.detail.collidingEntity);
     });
 
     // https://aframe.io/docs/1.0.0/components/oculus-touch-controls.html
