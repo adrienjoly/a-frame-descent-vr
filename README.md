@@ -14,7 +14,7 @@ Progress
 - [x] Display JS console remotely in Firefox, from Firefox Reality (about:debugging#/runtime/this-firefox)
 - [x] Move ship (camera) position (X and Z axes) based on joystick movement
 - [x] Use joystick of second controller to change direction (rotate the ship up/down and left/right)
-- [ ] Fix: keep lateral rotation VS vertical rotation independent
+- [x] Fix: keep lateral rotation VS vertical rotation independent
 - [ ] Move ship forwardaccording to direction, independently from head direction
 - [ ] Draw a simple cockpit around the camera, to make it look more like a ship
 - [ ] Fire a laser when a button is pressed
