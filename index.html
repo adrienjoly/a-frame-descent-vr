@@ -15,20 +15,22 @@
         position="0 1.6 0"
         rig-thrusters="forward: 0; right: 0; turnRight: 0; turnDown: 0;"
       >
+        <!-- display oculus controllers in rig -->
+        <a-entity
+          id="left-hand"
+          oculus-touch-controls="hand: left"
+          rig-rotation-controller="rig"
+        ></a-entity>
+        <a-entity
+          id="right-hand"
+          oculus-touch-controls="hand: right"
+          rig-movement-controller="rig"
+        ></a-entity>
+        <!-- player's point of view -->
         <a-entity id="camera" camera="active: true"></a-entity>
       </a-entity>
       <!-- player controls -->
       <a-entity id="keyboard-control" keyboard-control="rig"></a-entity>
-      <a-entity
-        id="left-hand"
-        oculus-touch-controls="hand: left"
-        rig-rotation-controller="rig"
-      ></a-entity>
-      <a-entity
-        id="right-hand"
-        oculus-touch-controls="hand: right"
-        rig-movement-controller="rig"
-      ></a-entity>
       <!-- level -->
       <a-box
         position="-1 0.5 -3"

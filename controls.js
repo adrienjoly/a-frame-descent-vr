@@ -7,7 +7,6 @@
 //
 // translation  rotation
 
-
 AFRAME.registerComponent("keyboard-control", {
   schema: { type: "string" },
 
