@@ -2,11 +2,36 @@
 
 Inspired by "Descent".
 
-Built with [A-Frame](https://aframe.io), tested on my Oculus Quest.
+Built with [A-Frame](https://aframe.io).
 
-Open and try it from Glitch: https://glitch.com/edit/#!/pitch-gaudy-acai
+Demo video: https://twitter.com/adrienjoly/status/1280171363110707203
 
-Progress
+## How to test it
+
+### On a computer
+
+1. Open https://glitch.com/~pitch-gaudy-acai in Google Chrome (or other browser that supports WebXR)
+2. Click on "Show"
+3. Use the following keys to control the ship:
+   ```
+        W      |     Y
+      A S D    |   G H J
+               |
+   translation | rotation
+   ```
+
+### In Oculus Quest VR headset
+
+1. Open https://pitch-gaudy-acai.glitch.me in Oculus Browser or Firefox Reality
+2. Click on the "VR" button, in the lower-right corner
+3. Use your controllers' joysticks to control the ship
+4. Press an "Oculus" button to exit the experience
+
+### Is my VR headset supported?
+
+I don't know. Try it and let me know by posting an issue there: https://github.com/adrienjoly/a-frame-descent-vr/issues
+
+## Progress on development
 
 - [x] Detect press on Oculus Quest's joystick => change ground color
 - [x] Detect movement on Oculus Quest's joystick => display in JS console
@@ -20,4 +45,3 @@ Progress
 - [ ] Fire a laser when a button is pressed
 - [ ] Add an enemy ship
 - [ ] Destroy enemy ship when hit by laser
-
