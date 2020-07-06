@@ -18,11 +18,14 @@ AFRAME.registerComponent("rig-thrusters", {
     this.el.object3D.rotateOnAxis(this.rightRotationAxis, this.turnVec.x / 50);
     var direction = new THREE.Vector3();
     this.el.object3D.getWorldDirection(direction);
+    var lateralDirection = new THREE.Vector3(direction.x, direction.y, direction.z); // clone
+    lateralDirection.applyAxisAngle(this.upRotationAxis, - Math.PI / 2);
     ['x', 'y', 'z'].forEach(axis => {
-      // this.el.object3D.position[axis] += this.moveVec.x / 10;  
+      // 1. move forward / backward
       this.el.object3D.position[axis] += direction[axis] * this.moveVec.y / 10;
+      // 2. lateral movement (strafe)
+      this.el.object3D.position[axis] += lateralDirection[axis] * this.moveVec.x / 10;  
     });
-    // console.log("rig tick => camera:", this.el.object3D.position);
   },
   update: function(oldData) {
     const { forward, right, turnDown, turnRight } = this.data;
@@ -30,9 +33,9 @@ AFRAME.registerComponent("rig-thrusters", {
     this.moveVec.y = forward;
     this.turnVec.x = turnDown;
     this.turnVec.y = turnRight;
-    console.log("rig update => moving:", this.moveVec);
-    console.log("rig update => turning:", this.turnVec);
+    // console.log("rig update => moving:", this.moveVec);
+    // console.log("rig update => turning:", this.turnVec);
+    console.log("rig update => position:", this.el.object3D.position);
     console.log("rig update => rotation:", this.el.object3D.rotation);
-    // console.log("rig update => direction: ", direction);
   }
 });

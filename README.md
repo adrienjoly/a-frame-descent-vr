@@ -40,7 +40,8 @@ I don't know. Try it and let me know by posting an issue there: https://github.c
 - [x] Move ship (camera) position (X and Z axes) based on joystick movement
 - [x] Use joystick of second controller to change direction (rotate the ship up/down and left/right)
 - [x] Fix: keep lateral rotation VS vertical rotation independent
-- [ ] Move ship forwardaccording to direction, independently from head direction
+- [x] Move ship forwardaccording to direction, independently from head direction
+- [ ] Stabilize the ship (parallel to ground) when a button is pressed
 - [ ] Draw a simple cockpit around the camera, to make it look more like a ship
 - [ ] Fire a laser when a button is pressed
 - [ ] Add an enemy ship
