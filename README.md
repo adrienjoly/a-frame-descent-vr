@@ -4,7 +4,7 @@ Inspired by "Descent".
 
 Built with [A-Frame](https://aframe.io).
 
-Demo video: https://twitter.com/adrienjoly/status/1280171363110707203
+Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
 
 ## How to test it
 
