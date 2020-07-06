@@ -16,8 +16,12 @@ AFRAME.registerComponent("rig-thrusters", {
   tick: function() {
     this.el.object3D.rotateOnAxis(this.upRotationAxis, this.turnVec.y / 50);
     this.el.object3D.rotateOnAxis(this.rightRotationAxis, this.turnVec.x / 50);
-    this.el.object3D.position.x += this.moveVec.x / 10;
-    this.el.object3D.position.z += this.moveVec.y / 10;
+    var direction = new THREE.Vector3();
+    this.el.object3D.getWorldDirection(direction);
+    ['x', 'y', 'z'].forEach(axis => {
+      // this.el.object3D.position[axis] += this.moveVec.x / 10;  
+      this.el.object3D.position[axis] += direction[axis] * this.moveVec.y / 10;
+    });
     // console.log("rig tick => camera:", this.el.object3D.position);
   },
   update: function(oldData) {
@@ -28,5 +32,7 @@ AFRAME.registerComponent("rig-thrusters", {
     this.turnVec.y = turnRight;
     console.log("rig update => moving:", this.moveVec);
     console.log("rig update => turning:", this.turnVec);
+    console.log("rig update => rotation:", this.el.object3D.rotation);
+    // console.log("rig update => direction: ", direction);
   }
 });
