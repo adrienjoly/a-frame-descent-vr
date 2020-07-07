@@ -46,3 +46,8 @@ I don't know. Try it and let me know by posting an issue there: https://github.c
 - [ ] Fire a laser when a button is pressed
 - [ ] Add an enemy ship
 - [ ] Destroy enemy ship when hit by laser
+- [ ] Draw a basic level: two rooms with a corridor
+- [ ] Make ship collide on room walls
+- [ ] Basic enemy movement: make their ship bounce on room walls
+- [ ] Make enemy ship occasionally shoot a laser
+- [ ] Lose a point when hit by laser
