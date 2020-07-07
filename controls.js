@@ -33,26 +33,16 @@ AFRAME.registerComponent("keyboard-control", {
     });
 
     window.addEventListener("keyup", function(event) {
-      switch (event.key) {
-        // translation keys
-        case "w":
-        case "s":
-          rig.setAttribute("rig-thrusters", "forward", 0);
-          break;
-        case "a":
-        case "d":
-          rig.setAttribute("rig-thrusters", "right", 0);
-          break;
-        // rotation keys
-        case "y":
-        case "h":
-          rig.setAttribute("rig-thrusters", "turnDown", 0);
-          break;
-        case "g":
-        case "j":
-          rig.setAttribute("rig-thrusters", "turnRight", 0);
-          break;
-      }
+      // translation keys
+      const forward = forwardControls[event.key];
+      if (forward) rig.setAttribute("rig-thrusters", "forward", 0);
+      const right = lateralControls[event.key];
+      if (right) rig.setAttribute("rig-thrusters", "right", 0);
+      // rotation keys
+      const turnDown = vertRotControls[event.key];
+      if (turnDown) rig.setAttribute("rig-thrusters", "turnDown", 0);
+      const turnRight = horizRotControls[event.key];
+      if (turnRight) rig.setAttribute("rig-thrusters", "turnRight", 0);
     });
   }
 });
