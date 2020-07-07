@@ -5,7 +5,8 @@ AFRAME.registerComponent("rig-thrusters", {
     forward: { type: "number", default: 0 },
     right: { type: "number", default: 0 },
     turnDown: { type: "number", default: 0 },
-    turnRight: { type: "number", default: 0 }
+    turnRight: { type: "number", default: 0 },
+    stabilize: { type: "boolean", default: false }
   },
   init: function() {
     this.moveVec = new THREE.Vector2();
@@ -18,17 +19,28 @@ AFRAME.registerComponent("rig-thrusters", {
     this.el.object3D.rotateOnAxis(this.rightRotationAxis, this.turnVec.x / 50);
     var direction = new THREE.Vector3();
     this.el.object3D.getWorldDirection(direction);
-    var lateralDirection = new THREE.Vector3(direction.x, direction.y, direction.z); // clone
-    lateralDirection.applyAxisAngle(this.upRotationAxis, - Math.PI / 2);
-    ['x', 'y', 'z'].forEach(axis => {
+    var lateralDirection = new THREE.Vector3(
+      direction.x,
+      direction.y,
+      direction.z
+    ); // clone
+    lateralDirection.applyAxisAngle(this.upRotationAxis, -Math.PI / 2);
+    ["x", "y", "z"].forEach(axis => {
       // 1. move forward / backward
-      this.el.object3D.position[axis] += direction[axis] * this.moveVec.y / 10;
+      this.el.object3D.position[axis] +=
+        (direction[axis] * this.moveVec.y) / 10;
       // 2. lateral movement (strafe)
-      this.el.object3D.position[axis] += lateralDirection[axis] * this.moveVec.x / 10;  
+      this.el.object3D.position[axis] +=
+        (lateralDirection[axis] * this.moveVec.x) / 10;
     });
   },
   update: function(oldData) {
-    const { forward, right, turnDown, turnRight } = this.data;
+    const { forward, right, turnDown, turnRight, stabilize } = this.data;
+    if (stabilize) {
+      this.el.object3D.rotation.x = 0;
+      this.el.object3D.rotation.z = 0;
+      return;
+    }
     this.moveVec.x = right;
     this.moveVec.y = forward;
     this.turnVec.x = turnDown;

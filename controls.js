@@ -32,10 +32,18 @@ AFRAME.registerComponent("keyboard-control", {
     };
 
     window.addEventListener("keydown", function(event) {
+      if (event.key === "l") {
+        rig.setAttribute("rig-thrusters", "stabilize", true);
+        return;
+      }
       Object.keys(movControls).forEach(mvt => applyKeyMovement(event.key, mvt));
     });
 
     window.addEventListener("keyup", function(event) {
+      if (event.key === "l") {
+        rig.setAttribute("rig-thrusters", "stabilize", false);
+        return;
+      }
       Object.keys(movControls).forEach(mvt => applyKeyRelease(event.key, mvt));
     });
   }
@@ -51,12 +59,8 @@ AFRAME.registerComponent("rig-movement-controller", {
     // https://aframe.io/docs/1.0.0/components/tracked-controls.html
     this.el.addEventListener("axismove", function(event) {
       const [x, y] = event.detail.axis.slice(2);
-      // console.log("rig-movement-controller", this.id, "axismove: " , { x, y });
       rig.setAttribute("rig-thrusters", { forward: y, right: x });
     });
-
-    // https://aframe.io/docs/1.0.0/components/oculus-touch-controls.html
-    // this.el.addEventListener("triggerdown", function(event) {});
   }
 });
 
@@ -69,8 +73,16 @@ AFRAME.registerComponent("rig-rotation-controller", {
 
     this.el.addEventListener("axismove", function(event) {
       const [x, y] = event.detail.axis.slice(2);
-      // console.log("rig-movement-controller", this.id, "axismove: " , { x, y });
       rig.setAttribute("rig-thrusters", { turnDown: y, turnRight: x });
+    });
+
+    // https://aframe.io/docs/1.0.0/components/oculus-touch-controls.html
+    this.el.addEventListener("triggerdown", function(event) {
+      rig.setAttribute("rig-thrusters", "stabilize", true);
+    });
+    
+    this.el.addEventListener("triggerup", function(event) {
+      rig.setAttribute("rig-thrusters", "stabilize", false);
     });
   }
 });
