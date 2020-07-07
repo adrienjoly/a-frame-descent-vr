@@ -14,35 +14,29 @@ AFRAME.registerComponent("keyboard-control", {
     const rigElementId = this.data;
     const rig = document.getElementById(rigElementId);
 
-    const forwardControls = { w: -1, s: 1 };
-    const lateralControls = { a: -1, d: 1 };
-    const vertRotControls = { y: -1, h: 1 };
-    const horizRotControls = { g: -1, j: 1 };
+    const movControls = {
+      forward: { w: -1, s: 1 },
+      right: { a: -1, d: 1 },
+      turnDown: { y: -1, h: 1 },
+      turnRight: { g: -1, j: 1 }
+    };
+
+    const applyKeyMovement = (key, movementName) => {
+      const movement = movControls[movementName][key];
+      if (movement) rig.setAttribute("rig-thrusters", movementName, movement);
+    };
+
+    const applyKeyRelease = (key, movementName) => {
+      const movement = movControls[movementName][key];
+      if (movement) rig.setAttribute("rig-thrusters", movementName, 0);
+    };
 
     window.addEventListener("keydown", function(event) {
-      // translation keys
-      const forward = forwardControls[event.key];
-      if (forward) rig.setAttribute("rig-thrusters", "forward", forward);
-      const right = lateralControls[event.key];
-      if (right) rig.setAttribute("rig-thrusters", "right", right);
-      // rotation keys
-      const turnDown = vertRotControls[event.key];
-      if (turnDown) rig.setAttribute("rig-thrusters", "turnDown", turnDown);
-      const turnRight = horizRotControls[event.key];
-      if (turnRight) rig.setAttribute("rig-thrusters", "turnRight", turnRight);
+      Object.keys(movControls).forEach(mvt => applyKeyMovement(event.key, mvt));
     });
 
     window.addEventListener("keyup", function(event) {
-      // translation keys
-      const forward = forwardControls[event.key];
-      if (forward) rig.setAttribute("rig-thrusters", "forward", 0);
-      const right = lateralControls[event.key];
-      if (right) rig.setAttribute("rig-thrusters", "right", 0);
-      // rotation keys
-      const turnDown = vertRotControls[event.key];
-      if (turnDown) rig.setAttribute("rig-thrusters", "turnDown", 0);
-      const turnRight = horizRotControls[event.key];
-      if (turnRight) rig.setAttribute("rig-thrusters", "turnRight", 0);
+      Object.keys(movControls).forEach(mvt => applyKeyRelease(event.key, mvt));
     });
   }
 });
