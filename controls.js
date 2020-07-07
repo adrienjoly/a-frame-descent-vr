@@ -3,9 +3,9 @@
 // Keyboard controls:
 //
 //      W           Y
-//    A S D       G H J
+//    A S D       G H J       L
 //
-// translation  rotation
+// translation  rotation  stabilize
 
 AFRAME.registerComponent("keyboard-control", {
   schema: { type: "string" },
@@ -14,43 +14,22 @@ AFRAME.registerComponent("keyboard-control", {
     const rigElementId = this.data;
     const rig = document.getElementById(rigElementId);
 
+    const forwardControls = { w: -1, s: 1 };
+    const lateralControls = { a: -1, d: 1 };
+    const vertRotControls = { y: -1, h: 1 };
+    const horizRotControls = { g: -1, j: 1 };
+
     window.addEventListener("keydown", function(event) {
-      switch (event.key) {
-        // translation keys
-        case "w":
-        case "s":
-          rig.setAttribute(
-            "rig-thrusters",
-            "forward",
-            event.key === "w" ? -1 : 1
-          );
-          break;
-        case "a":
-        case "d":
-          rig.setAttribute(
-            "rig-thrusters",
-            "right",
-            event.key === "a" ? -1 : 1
-          );
-          break;
-        // rotation keys
-        case "y":
-        case "h":
-          rig.setAttribute(
-            "rig-thrusters",
-            "turnDown",
-            event.key === "y" ? -1 : 1
-          );
-          break;
-        case "g":
-        case "j":
-          rig.setAttribute(
-            "rig-thrusters",
-            "turnRight",
-            event.key === "g" ? -1 : 1
-          );
-          break;
-      }
+      // translation keys
+      const forward = forwardControls[event.key];
+      if (forward) rig.setAttribute("rig-thrusters", "forward", forward);
+      const right = lateralControls[event.key];
+      if (right) rig.setAttribute("rig-thrusters", "right", right);
+      // rotation keys
+      const turnDown = vertRotControls[event.key];
+      if (turnDown) rig.setAttribute("rig-thrusters", "turnDown", turnDown);
+      const turnRight = horizRotControls[event.key];
+      if (turnRight) rig.setAttribute("rig-thrusters", "turnRight", turnRight);
     });
 
     window.addEventListener("keyup", function(event) {
