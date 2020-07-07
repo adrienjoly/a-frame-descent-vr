@@ -8,19 +8,19 @@ Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
 
 ## How to test it
 
-### On a computer
+### On a computer (with keyboard)
 
 1. Open https://glitch.com/~pitch-gaudy-acai in Google Chrome (or other browser that supports WebXR)
 2. Click on "Show"
 3. Use the following keys to control the ship:
    ```
-        W      |     Y
-      A S D    |   G H J
-               |
-   translation | rotation
+        W      |     Y    |
+      A S D    |   G H J  |     L
+               |          |
+   translation | rotation | stabilize
    ```
 
-### In Oculus Quest VR headset
+### In Oculus Quest VR headset (with 2 controllers)
 
 1. Open https://pitch-gaudy-acai.glitch.me in Oculus Browser or Firefox Reality
 2. Click on the "VR" button, in the lower-right corner
@@ -29,7 +29,7 @@ Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
 
 ### Is my VR headset supported?
 
-I don't know. Try it and let me know by posting an issue there: https://github.com/adrienjoly/a-frame-descent-vr/issues
+I don't know. 😅 Try it and let me know by posting an issue there: https://github.com/adrienjoly/a-frame-descent-vr/issues
 
 ## Progress on development
 
