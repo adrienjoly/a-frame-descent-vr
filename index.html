@@ -9,6 +9,13 @@
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
+      <!--
+      <a-assets>
+        <a-asset-item id="cockpit" src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2FNotARealStudio-cockpit.gltf?v=1594917553713"></a-asset-item>
+        <a-asset-item id="cockpit-bin" response-type="arraybuffer" src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2FNotARealStudio-cockpit.gltf.bin?v=1594918123367"></a-asset-item>
+        <a-asset-item id="cockpit-bin" response-type="arraybuffer" src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2FNotARealStudio-cockpit.glb?v=1594918533193"></a-asset-item>
+      </a-assets>
+      -->
       <!-- player's ship -->
       <a-entity id="rig" position="0 1.6 0">
         <!-- display oculus controllers in rig -->
@@ -27,6 +34,10 @@
       </a-entity>
       <!-- player controls -->
       <a-entity id="keyboard-control" keyboard-control="rig"></a-entity>
+      <!--<a-entity gltf-model="cockpit"></a-entity>-->
+      <!--<a-gltf-model animation-mixer="" gltf-model="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2FNotARealStudio-cockpit.glb?v=1594918533193" scale="0.01 0.01 0.01"></a-gltf-model>-->
+      <a-gltf-model animation-mixer="" gltf-model="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2FAnyConv.com__Cockpit_02.glb?v=1594924136432" scale="0.01 0.01 0.01"></a-gltf-model>
+      
       <!-- level -->
       <a-box
         position="-1 0.5 -3"

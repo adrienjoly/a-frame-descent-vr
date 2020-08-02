@@ -20,6 +20,8 @@ Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
    translation | rotation | stabilize
    ```
 
+Press Ctrl-Alt-I to open a-frame's inspector.
+
 ### In Oculus Quest VR headset (with 2 controllers)
 
 1. Open https://pitch-gaudy-acai.glitch.me in Oculus Browser or Firefox Reality
@@ -42,8 +44,10 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
 - [x] Fix: keep lateral rotation VS vertical rotation independent
 - [x] Move ship forwardaccording to direction, independently from head direction
 - [x] Stabilize the ship (parallel to ground) when L or the joystick is pressed
-- [ ] Draw a simple cockpit around the camera, to make it look more like a ship
-- [ ] Fire a laser when a button is pressed
+- [ ] Draw a simple cockpit around the camera, to make it look more like a ship => wip: how to import from google tilt brush ?
+   - convert the .tilt file with something like https://github.com/googlevr/tilt-brush-toolkit or https://github.com/DrHibbitts/TiltBrushConverter
+   - or import from google poly, using a component like https://github.com/mattrei/aframe-google-poly-component or https://github.com/archilogic-com/aframe-gblock
+- [ ] Fire a laser when a button is pressed, like in https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md
 - [ ] Add an enemy ship
 - [ ] Destroy enemy ship when hit by laser
 - [ ] Draw a basic level: two rooms with a corridor
