@@ -55,7 +55,7 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
 - [x] Fire a laser when a button is pressed, like in [aframe-super-shooter-kit](https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md)
 - [x] Destroy enemy ship when hit by laser
 - [x] Bug: in VR, player's head is out of the cockpit. camera's height should not depend on player's height.
-- [ ] Bug: in VR, controllers are not positioned anymore relative to viewpoint
+- [x] Bug: in VR, controllers are not positioned anymore relative to viewpoint => hide them
 - [ ] Draw a basic level: two rooms with a corridor
 - [ ] Make ship collide on room walls (e.g. https://jgbarah.github.io/aframe-playground/physics-02/)
 - [ ] Basic enemy movement: make their ship bounce on room walls
