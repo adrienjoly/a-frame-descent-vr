@@ -44,12 +44,13 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
 - [x] Fix: keep lateral rotation VS vertical rotation independent
 - [x] Move ship forwardaccording to direction, independently from head direction
 - [x] Stabilize the ship (parallel to ground) when L or the joystick is pressed
-- [ ] Draw a simple cockpit around the camera, to make it look more like a ship => wip: how to import from google tilt brush ?
+- [x] Draw a simple cockpit around the camera, to make it look more like a ship => wip: how to import from google tilt brush ?
    - convert the .tilt file with something like [tilt-brush-toolkit](https://github.com/googlevr/tilt-brush-toolkit) or [TiltBrushConverter](https://github.com/DrHibbitts/TiltBrushConverter)
    - or import from google poly, using a component like [aframe-google-poly-component](https://github.com/mattrei/aframe-google-poly-component) or [aframe-gblock](https://github.com/archilogic-com/aframe-gblock)
-   - or draw one with tinkerCAD, inspired by [descent II](https://lparchive.org/Descent-II/) => [wip](https://www.tinkercad.com/things/is4G4UpZnln-epic-stantia/edit)
+   - [x] or draw one with tinkerCAD, inspired by [descent II](https://lparchive.org/Descent-II/) => [wip](https://www.tinkercad.com/things/is4G4UpZnln-epic-stantia/edit)
+- [x] Draw a basic room
+- [x] Add an enemy ship
 - [ ] Fire a laser when a button is pressed, like in [aframe-super-shooter-kit](https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md)
-- [ ] Add an enemy ship
 - [ ] Destroy enemy ship when hit by laser
 - [ ] Draw a basic level: two rooms with a corridor
 - [ ] Make ship collide on room walls
