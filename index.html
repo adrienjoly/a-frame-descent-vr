@@ -2,15 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Quest Controllers • A-Frame</title>
+    <title>Descent VR (wip)</title>
+    <!-- https://github.com/adrienjoly/a-frame-descent-vr -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/darkwave/aframe-stl-model-component/master/dist/aframe-stl-model-component.min.js"></script>
     <script src="ship.js"></script>
     <script src="controls.js"></script>
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
+     <a-assets>
+       <a-asset-item id="tinkercadcockpit" src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2Ftinker.obj"></a-asset-item>
+     </a-assets>
       <!-- player's ship -->
       <a-entity id="rig" position="0 1.6 0">
+        <!-- cockpit -->
+        <a-entity obj-model="obj: #tinkercadcockpit" opacity="0.5" scale="0.01 0.01 0.01" rotation="-70 180 0" position="0 -0.7 0" material="color: #777; metalness: 0.5"></a-entity>
         <!-- display oculus controllers in rig -->
         <a-entity
           id="left-hand"
