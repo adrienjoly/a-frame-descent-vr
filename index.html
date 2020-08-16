@@ -54,14 +54,14 @@
       ></a-entity>
 
       <!-- player's ship -->
-      <a-entity id="rig" position="0 1.6 0" shooter>
+      <a-entity id="rig" position="0 0 0" shooter>
         <!-- ship's structure and cockpit -->
         <a-entity
           obj-model="obj: #tinkercadcockpit"
           opacity="0.5"
           scale="0.01 0.01 0.01"
           rotation="-70 180 0"
-          position="0 -0.7 0"
+          position="0 0.8 0"
           material="color: #777; metalness: 0.5"
         ></a-entity>
         <!-- display oculus controllers in rig -->
@@ -76,7 +76,7 @@
           rig-movement-controller="rig"
         ></a-entity>
         <!-- player's point of view -->
-        <a-entity id="camera" camera="active: true"></a-entity>
+        <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
       </a-entity>
 
       <!-- player controls -->
