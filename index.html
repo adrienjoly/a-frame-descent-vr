@@ -7,6 +7,7 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aframe-super-shooter-kit@1.1.7/dist/aframe-super-shooter-kit.min.js"></script>
     <script src="ship.js"></script>
+    <script src="enemy-ship.js"></script>
     <script src="controls.js"></script>
   </head>
   <body>
@@ -26,7 +27,7 @@
         geometry="primitive: sphere; radius: 0.1"
         material="color: orange"
       ></a-entity>
-      
+
       <!-- level: basic room -->
       <a-box
         id="room-1"
@@ -40,7 +41,7 @@
 
       <!-- enemy ship -->
       <a-entity
-        class="target"
+        class="enemy"
         target="healthPoints: 10"
         position="0 1.5 -10"
         rotation="90 0 10"
@@ -48,12 +49,12 @@
         height="1.5"
         geometry="primitive: cone"
         material="color: teal"
-        hit-handler
+        destroyable
         shadow
       ></a-entity>
 
       <!-- player's ship -->
-      <a-entity id="rig" position="0 1.6 0">
+      <a-entity id="rig" position="0 1.6 0" shooter>
         <!-- ship's structure and cockpit -->
         <a-entity
           obj-model="obj: #tinkercadcockpit"
@@ -75,17 +76,11 @@
           rig-movement-controller="rig"
         ></a-entity>
         <!-- player's point of view -->
-        <a-entity
-          id="camera"
-          camera="active: true"
-          shooter
-          click-to-shoot
-        ></a-entity>
+        <a-entity id="camera" camera="active: true"></a-entity>
       </a-entity>
 
       <!-- player controls -->
       <a-entity id="keyboard-control" keyboard-control="rig"></a-entity>
-
     </a-scene>
   </body>
 </html>

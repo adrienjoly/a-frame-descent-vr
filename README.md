@@ -18,6 +18,8 @@ Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
       A S D    |   G H J  |     L
                |          |
    translation | rotation | stabilize
+   
+   SPACE BAR = shoot
    ```
 
 Press Ctrl-Alt-I to open a-frame's inspector.
@@ -26,7 +28,7 @@ Press Ctrl-Alt-I to open a-frame's inspector.
 
 1. Open https://pitch-gaudy-acai.glitch.me in Oculus Browser or Firefox Reality
 2. Click on the "VR" button, in the lower-right corner
-3. Use your controllers' joysticks to control the ship
+3. Use your controllers' thumbsticks to control the ship, and the right trigger to shoot
 4. Press an "Oculus" button to exit the experience
 
 ### Is my VR headset supported?
@@ -51,7 +53,7 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
 - [x] Draw a basic room
 - [x] Add an enemy ship
 - [x] Fire a laser when a button is pressed, like in [aframe-super-shooter-kit](https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md)
-- [ ] Destroy enemy ship when hit by laser
+- [x] Destroy enemy ship when hit by laser
 - [ ] Draw a basic level: two rooms with a corridor
 - [ ] Make ship collide on room walls
 - [ ] Basic enemy movement: make their ship bounce on room walls
