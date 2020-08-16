@@ -50,7 +50,7 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
    - [x] or draw one with tinkerCAD, inspired by [descent II](https://lparchive.org/Descent-II/) => [wip](https://www.tinkercad.com/things/is4G4UpZnln-epic-stantia/edit)
 - [x] Draw a basic room
 - [x] Add an enemy ship
-- [ ] Fire a laser when a button is pressed, like in [aframe-super-shooter-kit](https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md)
+- [x] Fire a laser when a button is pressed, like in [aframe-super-shooter-kit](https://github.com/supermedium/aframe-super-shooter-kit/blob/master/README.md)
 - [ ] Destroy enemy ship when hit by laser
 - [ ] Draw a basic level: two rooms with a corridor
 - [ ] Make ship collide on room walls

@@ -5,21 +5,64 @@
     <title>Descent VR (wip)</title>
     <!-- https://github.com/adrienjoly/a-frame-descent-vr -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-super-shooter-kit@1.1.7/dist/aframe-super-shooter-kit.min.js"></script>
     <script src="ship.js"></script>
     <script src="controls.js"></script>
   </head>
   <body>
     <a-scene background="color: #FAFAFA">
-      
       <!-- external 3d models -->
       <a-assets>
-        <a-asset-item id="tinkercadcockpit" src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2Ftinker.obj"></a-asset-item>
+        <a-asset-item
+          id="tinkercadcockpit"
+          src="https://cdn.glitch.com/2ce265aa-7406-4a44-8c1c-00f1a141bbc6%2Ftinker.obj"
+        ></a-asset-item>
       </a-assets>
+
+      <!-- from https://github.com/supermedium/aframe-super-shooter-kit -->
+      <a-entity
+        id="bulletTemplate"
+        bullet
+        geometry="primitive: sphere; radius: 0.1"
+        material="color: orange"
+      ></a-entity>
       
+      <!-- level: basic room -->
+      <a-box
+        id="room-1"
+        position="0 0 0"
+        depth="80"
+        height="20"
+        width="20"
+        color="blue"
+        material="side: double"
+      ></a-box>
+
+      <!-- enemy ship -->
+      <a-entity
+        class="target"
+        target="healthPoints: 10"
+        position="0 1.5 -10"
+        rotation="90 0 10"
+        radius="0.5"
+        height="1.5"
+        geometry="primitive: cone"
+        material="color: teal"
+        hit-handler
+        shadow
+      ></a-entity>
+
       <!-- player's ship -->
       <a-entity id="rig" position="0 1.6 0">
         <!-- ship's structure and cockpit -->
-        <a-entity obj-model="obj: #tinkercadcockpit" opacity="0.5" scale="0.01 0.01 0.01" rotation="-70 180 0" position="0 -0.7 0" material="color: #777; metalness: 0.5"></a-entity>
+        <a-entity
+          obj-model="obj: #tinkercadcockpit"
+          opacity="0.5"
+          scale="0.01 0.01 0.01"
+          rotation="-70 180 0"
+          position="0 -0.7 0"
+          material="color: #777; metalness: 0.5"
+        ></a-entity>
         <!-- display oculus controllers in rig -->
         <a-entity
           id="left-hand"
@@ -32,32 +75,17 @@
           rig-movement-controller="rig"
         ></a-entity>
         <!-- player's point of view -->
-        <a-entity id="camera" camera="active: true"></a-entity>
+        <a-entity
+          id="camera"
+          camera="active: true"
+          shooter
+          click-to-shoot
+        ></a-entity>
       </a-entity>
-      
+
       <!-- player controls -->
       <a-entity id="keyboard-control" keyboard-control="rig"></a-entity>
-      
-      <!-- level -->
-      <a-box
-        id="room-1"
-        position="0 0 0"
-        depth="80"
-        height="20"
-        width="20"
-        color="blue"
-        material="side: double"
-      ></a-box>
-      <a-cone
-        id="enemy-1"
-        position="0 0.75 -10"
-        rotation="90 0 10"
-        radius="0.5"
-        height="1.5"
-        color="#FFC65D"
-        shadow
-      ></a-cone>
+
     </a-scene>
-    
   </body>
 </html>
