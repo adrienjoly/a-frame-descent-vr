@@ -1,3 +1,5 @@
+/*globals AFRAME, THREE*/
+
 /**
  * Change color when hit.
  */

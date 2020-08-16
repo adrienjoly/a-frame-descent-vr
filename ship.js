@@ -1,5 +1,20 @@
 /*globals AFRAME, THREE*/
 
+const playerIsOnDesktop = ({ x, y, z }) => x === 0 && y === 0 && z === 0;
+
+// fix camera height for when player is not in immersive/VR mode (i.e. the height of the player's head is 0 instead of ~1.6m)
+AFRAME.registerComponent("fix-height-on-desktop", {
+  init: function() {
+    const defaultPos = { ...this.el.getAttribute("position") }; // backup coordinates by cloning the object
+    this.el.sceneEl.addEventListener("enter-vr", () =>
+      this.el.setAttribute("position", { x: 0, y: 0, z: 0 })
+    );
+    this.el.sceneEl.addEventListener("exit-vr", () =>
+      this.el.setAttribute("position", defaultPos)
+    );
+  }
+});
+
 AFRAME.registerComponent("rig-thrusters", {
   schema: {
     forward: { type: "number", default: 0 },

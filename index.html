@@ -67,18 +67,18 @@
         <!-- oculus controllers (hidden) -->
         <a-entity
           id="left-hand"
-          model="false"
+          model="true"
           oculus-touch-controls="hand: left"
           rig-rotation-controller="rig"
         ></a-entity>
         <a-entity
           id="right-hand"
-          model="false"
+          model="true"
           oculus-touch-controls="hand: right"
           rig-movement-controller="rig"
         ></a-entity>
         <!-- player's point of view -->
-        <a-entity id="camera" camera look-controls position="0 1.6 0">
+        <a-entity id="camera" camera position="0 1.6 0" fix-height-on-desktop>
         </a-entity>
       </a-entity>
 
