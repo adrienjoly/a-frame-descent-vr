@@ -56,7 +56,11 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
 - [x] Destroy enemy ship when hit by laser
 - [x] Bug: in VR, player's head is out of the cockpit. camera's height should not depend on player's height.
 - [x] Bug: in VR, controllers are not positioned anymore relative to viewpoint => hide them
-- [ ] Draw a basic level: two rooms with a corridor
+- [ ] Draw a basic level: two rooms with a corridor, e.g.
+  * [omgitsraven/aframe-room-component: An A-Frame component for laying out simple rooms connected by doors.](https://github.com/omgitsraven/aframe-room-component)
+  * [I built something with A-Frame in 2 days (and you can too) - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/09/i-built-something-with-a-frame-in-2-days-and-you-can-too/)
+  * [javascript - Move camera in aframe with physics engine - Stack Overflow](https://stackoverflow.com/questions/43503796/move-camera-in-aframe-with-physics-engine)
+  * [donmccurdy/aframe-physics-system: Physics system for A-Frame VR, built on CANNON.js.](https://github.com/donmccurdy/aframe-physics-system)
 - [ ] Make ship collide on room walls (e.g. https://jgbarah.github.io/aframe-playground/physics-02/)
 - [ ] Basic enemy movement: make their ship bounce on room walls
 - [ ] Make enemy ship occasionally shoot a laser
