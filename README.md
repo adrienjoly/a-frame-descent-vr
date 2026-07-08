@@ -10,7 +10,7 @@ Demo video: https://twitter.com/adrienjoly/status/1280182990073626632
 
 ### On a computer (with keyboard)
 
-1. Open https://glitch.com/~pitch-gaudy-acai in Google Chrome (or other browser that supports WebXR)
+1. Open ~~https://glitch.com/~pitch-gaudy-acai~~ https://adrienjoly.com/a-frame-descent-vr/ in Google Chrome (or other browser that supports WebXR)
 2. Click on "Show"
 3. Use the following keys to control the ship:
    ```
@@ -26,7 +26,7 @@ Press Ctrl-Alt-I to open a-frame's inspector.
 
 ### In Oculus Quest VR headset (with 2 controllers)
 
-1. Open https://pitch-gaudy-acai.glitch.me in Oculus Browser or Firefox Reality
+1. Open ~~https://glitch.com/~pitch-gaudy-acai~~ https://adrienjoly.com/a-frame-descent-vr/ in Oculus Browser or Firefox Reality
 2. Click on the "VR" button, in the lower-right corner
 3. Use your controllers' thumbsticks to control the ship, and the right trigger to shoot
 4. Press an "Oculus" button to exit the experience
