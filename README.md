@@ -60,7 +60,7 @@ I don't know. 😅 Try it and let me know by posting an issue there: https://git
   * [omgitsraven/aframe-room-component: An A-Frame component for laying out simple rooms connected by doors.](https://github.com/omgitsraven/aframe-room-component)
   * [I built something with A-Frame in 2 days (and you can too) - Mozilla Hacks - the Web developer blog](https://hacks.mozilla.org/2017/09/i-built-something-with-a-frame-in-2-days-and-you-can-too/)
   * [javascript - Move camera in aframe with physics engine - Stack Overflow](https://stackoverflow.com/questions/43503796/move-camera-in-aframe-with-physics-engine)
-  * [donmccurdy/aframe-physics-system: Physics system for A-Frame VR, built on CANNON.js.](https://github.com/donmccurdy/aframe-physics-system)
+  * ~~[donmccurdy/aframe-physics-system: Physics system for A-Frame VR, built on CANNON.js.](https://github.com/donmccurdy/aframe-physics-system)~~  [c-frame/aframe-physics-system: community-maintained fork of n5ro's aframe-physics-system](https://github.com/c-frame/aframe-physics-system) (listed on https://aframe.wiki/en/#!pages/component-directory.md)
 - [ ] Make ship collide on room walls (e.g. https://jgbarah.github.io/aframe-playground/physics-02/)
 - [ ] Basic enemy movement: make their ship bounce on room walls
 - [ ] Make enemy ship occasionally shoot a laser
