@@ -2,7 +2,8 @@ AFRAME.registerComponent('infinite-ocean', {
   schema: {
     target: { type: 'selector' },
     size: { default: 7000 },
-    y: { default: -2 }
+    y: { default: -2 },
+    lowPower: { default: false }
   },
 
   init() {
@@ -11,7 +12,12 @@ AFRAME.registerComponent('infinite-ocean', {
     this.plane.setAttribute('width', this.data.size);
     this.plane.setAttribute('height', this.data.size);
     this.plane.setAttribute('color', '#071a46');
-    this.plane.setAttribute('material', 'shader: standard; roughness: 0.92; metalness: 0.04; opacity: 0.97;');
+    this.plane.setAttribute(
+      'material',
+      this.data.lowPower
+        ? 'shader: flat; opacity: 0.95;'
+        : 'shader: standard; roughness: 0.92; metalness: 0.04; opacity: 0.97;'
+    );
     this.el.appendChild(this.plane);
   },
 
