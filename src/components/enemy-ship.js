@@ -133,3 +133,52 @@ AFRAME.registerComponent("enemy-ship", {
     el.appendChild(root);
   }
 });
+
+AFRAME.registerComponent('enemy-patrol', {
+  schema: {
+    center: { type: 'selector' },
+    radius: { default: 240 },   // was 620
+    height: { default: 140 },   // was 235
+    speed: { default: 0.00016 },// slightly slower
+    bob: { default: 10 },
+    bobSpeed: { default: 0.9 }
+  },
+
+  init() {
+    this.angle = Math.random() * Math.PI * 2;
+    this.center = new THREE.Vector3();
+    this.lookTarget = new THREE.Vector3();
+    this.syncCenter();
+    this.syncPosition(0);
+  },
+
+  syncCenter() {
+    if (this.data.center) {
+      this.center.copy(this.data.center.object3D.position);
+    } else {
+      this.center.set(0, 0, 0);
+    }
+  },
+
+  syncPosition(time) {
+    const { radius, height, bob, bobSpeed } = this.data;
+    const x = this.center.x + Math.cos(this.angle) * radius;
+    const z = this.center.z + Math.sin(this.angle) * radius;
+    const y = height + Math.sin(time * 0.001 * bobSpeed) * bob;
+
+    this.el.object3D.position.set(x, y, z);
+
+    // Face roughly along the path
+    const nx = this.center.x + Math.cos(this.angle + 0.03) * radius;
+    const nz = this.center.z + Math.sin(this.angle + 0.03) * radius;
+    this.lookTarget.set(nx, y, nz);
+    this.el.object3D.lookAt(this.lookTarget);
+    this.el.object3D.rotateY(Math.PI);
+  },
+
+  tick(time, dt) {
+    this.syncCenter();
+    this.angle += this.data.speed * dt;
+    this.syncPosition(time);
+  }
+});
