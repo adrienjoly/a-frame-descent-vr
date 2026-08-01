@@ -1,7 +1,7 @@
 AFRAME.registerComponent('futuristic-city-scene', {
   init() {
     const starrySky = document.createElement('a-entity');
-    starrySky.setAttribute('starry-sky', 'count: 260; radius: 1200;');
+    starrySky.setAttribute('starry-sky', 'target: #rig; count: 500; radius: 420; minY: 40; maxY: 320; minSize: 0.6; maxSize: 1.8;');
     this.el.appendChild(starrySky);
 
     const ocean = document.createElement('a-entity');
