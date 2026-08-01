@@ -26,11 +26,22 @@
         material="color: orange"
       ></a-entity>
 
+      <!-- landmark skyscraper (center) -->
+      <a-box
+        id="landmark-tower"
+        position="0 40 0"
+        width="28"
+        height="80"
+        depth="28"
+        color="#5a637d"
+        material="roughness: 0.85; metalness: 0.2;"
+      ></a-box>
+
       <!-- enemy ship -->
       <a-entity
         class="enemy"
         target="healthPoints: 10"
-        position="0 1.5 -10"
+        position="16 92 -16"
         rotation="90 0 10"
         radius="0.5"
         height="1.5"
@@ -41,7 +52,7 @@
       ></a-entity>
 
       <!-- player's ship -->
-      <a-entity id="rig" position="0 0 0" shooter>
+      <a-entity id="rig" position="0 92 10" shooter>
         <!-- ship's structure and cockpit -->
         <a-entity
           obj-model="obj: #tinkercadcockpit"
