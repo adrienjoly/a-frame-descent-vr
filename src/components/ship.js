@@ -30,8 +30,8 @@ AFRAME.registerComponent("rig-thrusters", {
     this.rightRotationAxis = new THREE.Vector3(1, 0, 0); // axis for turnDown/Up rotation
   },
   tick: function() {
-    this.el.object3D.rotateOnAxis(this.upRotationAxis, this.turnVec.y / 50);
-    this.el.object3D.rotateOnAxis(this.rightRotationAxis, this.turnVec.x / 50);
+    this.el.object3D.rotateOnAxis(this.upRotationAxis, this.turnVec.y / 30);
+    this.el.object3D.rotateOnAxis(this.rightRotationAxis, this.turnVec.x / 30);
     var direction = new THREE.Vector3();
     this.el.object3D.getWorldDirection(direction);
     var lateralDirection = new THREE.Vector3(
@@ -43,10 +43,10 @@ AFRAME.registerComponent("rig-thrusters", {
     ["x", "y", "z"].forEach(axis => {
       // 1. move forward / backward
       this.el.object3D.position[axis] +=
-        (direction[axis] * this.moveVec.y) / 10;
+        (direction[axis] * this.moveVec.y);
       // 2. lateral movement (strafe)
       this.el.object3D.position[axis] +=
-        (lateralDirection[axis] * this.moveVec.x) / 10;
+        (lateralDirection[axis] * this.moveVec.x);
     });
   },
   update: function(oldData) {
