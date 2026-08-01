@@ -4,4 +4,5 @@ import './components/city-generator.js';
 import './components/infinite-ocean.js';
 import './components/starry-sky.js';
 import './components/enemy-ship.js';
+import './components/cockpit-compass.js';
 import './scenes/futuristic-city-scene.js';
