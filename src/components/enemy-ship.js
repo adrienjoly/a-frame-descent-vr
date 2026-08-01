@@ -182,3 +182,27 @@ AFRAME.registerComponent('enemy-patrol', {
     this.syncPosition(time);
   }
 });
+
+AFRAME.registerComponent("explode-on-die", {
+  init: function () {
+    this.el.addEventListener("die", () => {
+      const scene = this.el.sceneEl;
+      const p = new THREE.Vector3();
+      this.el.object3D.getWorldPosition(p);
+
+      const boom = document.createElement("a-sphere");
+      boom.setAttribute("position", `${p.x} ${p.y} ${p.z}`);
+      boom.setAttribute("radius", "0.4");
+      boom.setAttribute(
+        "material",
+        "color: #ff9933; emissive: #ff5500; emissiveIntensity: 1.4; transparent: true; opacity: 0.95;"
+      );
+      boom.setAttribute("animation__grow", "property: scale; to: 8 8 8; dur: 260; easing: easeOutQuad;");
+      boom.setAttribute("animation__fade", "property: material.opacity; to: 0; dur: 260; easing: linear;");
+      scene.appendChild(boom);
+
+      setTimeout(() => boom.remove(), 300);
+      this.el.remove(); // enemy disappears after first bullet
+    });
+  }
+});
