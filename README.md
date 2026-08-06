@@ -1,6 +1,6 @@
 # Making a VR game with a-frame
 
-Inspired by "Descent".
+Inspired by "Descent" and "G-Rebels".
 
 Built with [A-Frame](https://aframe.io).
 
